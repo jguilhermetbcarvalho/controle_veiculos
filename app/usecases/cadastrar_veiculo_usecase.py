@@ -1,7 +1,7 @@
 import sys
 sys.path.append(r"C:\Users\joaog\Documents\controle_veiculos\app")
 
-from entities.veiculo import Veiculo
+from app.entities.veiculo import Veiculo
 
 class CadastrarVeiculoUseCase:
     def cadastrar_veiculo(self, placa, modelo, ano):

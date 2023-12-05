@@ -1,10 +1,10 @@
 import unittest
-from app.adapters.sqlite_database_adapter import SQLiteDatabaseAdapter
+from app.interfaces_adapters.adapters.sqlite_database_adapter import SQLiteDatabaseAdapter
 from app.entities.veiculo import Veiculo
 from app.entities.resgistro_uso import RegistroUso
 from app.entities.motorista import Motorista
 from app.entities.abastecimento import RegistroAbastecimento
-from app.infrastructure.sqlite_database import create_veiculos_table, create_motorista_table, create_uso_veiculo_table, create_abastecimento_table
+from app.external_interfaces.infrastructure.sqlite_database import create_veiculos_table, create_motorista_table, create_uso_veiculo_table, create_abastecimento_table
 import os
 
 class TestDatabaseAdapter(unittest.TestCase):

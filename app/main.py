@@ -1,2 +1,0 @@
-
-from infrastructure.sqlite_database import setup_database

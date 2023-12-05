@@ -1,7 +1,7 @@
 import sys
 sys.path.append(r"C:\Users\joaog\Documents\controle_veiculos\app")
 
-from entities.resgistro_uso import RegistroUso
+from app.entities.resgistro_uso import RegistroUso
 
 class RegistrarUsoVeiculoUseCase:
     def registrar_uso(self, veiculo_placa, motorista_nome, data_inicial, data_final, km_inicial, km_final):

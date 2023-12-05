@@ -1,0 +1,2 @@
+
+from external_interfaces.infrastructure.sqlite_database import setup_database

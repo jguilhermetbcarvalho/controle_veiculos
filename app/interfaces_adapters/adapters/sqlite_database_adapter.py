@@ -1,5 +1,5 @@
 import sqlite3
-from app.adapters.database_adapter import IDatabaseAdapter
+from app.interfaces_adapters.adapters.database_adapter import IDatabaseAdapter
 from app.entities.veiculo import Veiculo
 from app.entities.motorista import Motorista
 from app.entities.abastecimento import RegistroAbastecimento

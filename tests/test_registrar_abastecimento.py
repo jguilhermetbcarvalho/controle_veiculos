@@ -2,7 +2,7 @@ import sys
 sys.path.append(r"C:\Users\joaog\Documents\controle_veiculos\app")
 
 import unittest
-from app.controllers.abastecimento_controller import AbastecimentoController
+from app.interfaces_adapters.controllers.abastecimento_controller import AbastecimentoController
 from app.entities.veiculo import Veiculo
 from app.entities.motorista import Motorista
 

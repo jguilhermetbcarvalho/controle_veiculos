@@ -2,7 +2,7 @@ import sys
 sys.path.append(r"C:\Users\joaog\Documents\controle_veiculos\app")
 
 import unittest
-from app.controllers.motorista_controller import MotoristaController
+from app.interfaces_adapters.controllers.motorista_controller import MotoristaController
 
 
 class TestCadastrarMotorista(unittest.TestCase):
