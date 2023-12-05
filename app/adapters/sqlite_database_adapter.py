@@ -3,6 +3,7 @@ from adapters.database_adapter import IDatabaseAdapter
 from entities.veiculo import Veiculo
 from entities.motorista import Motorista
 from entities.abastecimento import RegistroAbastecimento
+from entities.resgistro_uso import RegistroUso
 class SQLiteDatabaseAdapter(IDatabaseAdapter):
     def __init__(self, db='controle_veiculos.db'):
         self.db = db
@@ -68,27 +69,8 @@ class SQLiteDatabaseAdapter(IDatabaseAdapter):
 
             cursor.execute(f'SELECT * FROM {tabela} WHERE {chave_primaria} = ?', (identificador,))
             resultado = cursor.fetchone()
-            
-            if resultado:
-                if f'{tabela}' == 'veiculos':
-                    # Criar uma instância de Veiculo com os dados encontrados no banco de dados
-                    veiculo_encontrado = Veiculo(placa=resultado[0], modelo=resultado[1], ano=resultado[2])
-                    return veiculo_encontrado
-                if f'{tabela}' == 'motoristas':
-                    # Criar uma instância de Motorista com os dados encontrados no banco de dados
-                    motorista_encontrado = Motorista(nome=resultado[0], cpf=resultado[1], funcao=resultado[2])
-                    return motorista_encontrado
-                if f'{tabela}' == 'abastecimento':
-                    # Criar uma instância de Abastecimento com os dados encontrados no banco de dados
-                    abastecimento_encontrado = RegistroAbastecimento(veiculo=resultado[0], motorista=resultado[1], data=resultado[2], combustivel_litros=resultado[3], custo=resultado[4])
-                    return abastecimento_encontrado
 
-            else:
-                # Retornar None se nenhuma entidade foi encontrado
-                return None
-
-
-            return resultado
+            return self.mapear_entidade(tabela, resultado)
 
         except sqlite3.Error as e:
             print(f'Erro ao buscar entidade: {e}')
@@ -96,4 +78,20 @@ class SQLiteDatabaseAdapter(IDatabaseAdapter):
         finally:
             conn.close()
 
+    def mapear_entidade(self, tabela, resultado):
+        if resultado:
+            classes_por_tabela = {
+                'veiculos': Veiculo,
+                'motoristas': Motorista,
+                'abastecimento': RegistroAbastecimento,
+                'uso_veiculo' : RegistroUso,
+            }
+
+            classe_entidade = classes_por_tabela.get(tabela)
+
+            if classe_entidade:
+                entidade_encontrada = classe_entidade(*resultado)
+                return entidade_encontrada
+
+        return None
    
