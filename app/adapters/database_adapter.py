@@ -13,10 +13,14 @@ class IDatabaseAdapter(ABC):
         pass
 
     @abstractmethod
-    def remover_entidade(self, tabela, chave_primaria, **dados):
+    def remover_entidade(self, tabela, chave_primaria, identificador):
         pass
 
     @abstractmethod
-    def buscar_entidade(self, tabela, **dados):
+    def buscar_entidade(self, tabela, chave_primaria, identificador):
+        pass
+
+    @abstractmethod
+    def mapear_entidade(self, tabela, resultado):
         pass
 

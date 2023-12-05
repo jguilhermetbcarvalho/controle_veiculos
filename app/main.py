@@ -1,2 +1,2 @@
 
-from infrastructure.database import setup_database
+from infrastructure.sqlite_database import setup_database

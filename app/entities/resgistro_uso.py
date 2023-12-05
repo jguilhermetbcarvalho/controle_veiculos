@@ -1,6 +1,6 @@
 class RegistroUso:
-    def __init__(self, veiculo : str, motorista : str, data_inicial : str, data_final : str, km_inicial : float, km_final : float):
-        self.veiculo = veiculo
+    def __init__(self, veiculo_placa : str, motorista : str, data_inicial : str, data_final : str, km_inicial : float, km_final : float):
+        self.veiculo_placa = veiculo_placa
         self.motorista = motorista
         self.data_inicial = data_inicial
         self.data_final = data_final

@@ -18,10 +18,10 @@ class TestRegistrarAbastecimento(unittest.TestCase):
         custo = 288
 
         # Executar o caso de uso
-        abastecimento = abastecimento_controller.registrar_abastecimento(veiculo, motorista, data, combustivel_litros, custo)
+        abastecimento = abastecimento_controller.registrar_abastecimento(veiculo.placa, motorista, data, combustivel_litros, custo)
 
         # Verificar se o abastecimento foi registrado corretamente
-        self.assertEqual(abastecimento.veiculo, veiculo)
+        self.assertEqual(abastecimento.veiculo_placa, veiculo.placa)
         self.assertEqual(abastecimento.motorista, motorista)
         self.assertEqual(abastecimento.data, data)
         self.assertEqual(abastecimento.combustivel_litros, combustivel_litros)

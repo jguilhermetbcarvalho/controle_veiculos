@@ -23,3 +23,14 @@ def create_veiculos_table():
 
     finally:
         conn.close()
+
+# def create_uso_veiculo_table():
+#     try:
+#         conn = sqlite3.connect('test.db')
+#         cursor = conn.cursor()
+
+#         cursor.execute('''
+#             CREATE TABLE IF NOT EXISTS uso_veiculo (
+                       
+#             )
+#                        ''')

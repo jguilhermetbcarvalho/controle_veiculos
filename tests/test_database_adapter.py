@@ -1,7 +1,7 @@
 import unittest
 from app.adapters.sqlite_database_adapter import SQLiteDatabaseAdapter
 from app.entities.veiculo import Veiculo
-from app.infrastructure.database import create_veiculos_table
+from app.infrastructure.sqlite_database import create_veiculos_table
 import os
 
 class TestDatabaseAdapter(unittest.TestCase):
@@ -14,7 +14,7 @@ class TestDatabaseAdapter(unittest.TestCase):
             os.remove('test.db')
 
     def test_salvar_entidade(self):
-        # Testar salvar_veiculo, buscar_veiculo e remover_veiculo
+        # Testar salvar_entidade, atualizar_entidade, buscar_entidade e remover_entidade
         veiculo_teste = Veiculo(placa='NDS3536', modelo='STRADA', ano=2013)
         print('Objeto veiculo criado!')
 
@@ -37,7 +37,6 @@ class TestDatabaseAdapter(unittest.TestCase):
         # Testar remover_entidade
         self.database_adapter.remover_entidade('veiculos', 'placa', veiculo_teste.placa)
         print('Veículo removido!')
-
 
 if __name__ == '__main__':
     unittest.main()
