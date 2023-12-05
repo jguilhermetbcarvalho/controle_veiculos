@@ -19,11 +19,11 @@ class TestRegistrarUsoVeiculo(unittest.TestCase):
         km_final = 200
 
         # Executar o caso de uso
-        registro_uso = registrar_uso_veiculo_controller.registrar_uso(veiculo.placa, motorista, data_inicial, data_final, km_inicial, km_final)
+        registro_uso = registrar_uso_veiculo_controller.registrar_uso(veiculo.placa, motorista.nome, data_inicial, data_final, km_inicial, km_final)
 
         # Verificar se o registro de uso foi criado corretamente
         self.assertEqual(registro_uso.veiculo_placa, veiculo.placa)
-        self.assertEqual(registro_uso.motorista, motorista)
+        self.assertEqual(registro_uso.motorista_nome, motorista.nome)
         self.assertEqual(registro_uso.data_inicial, data_inicial)
         self.assertEqual(registro_uso.data_final, data_final)
         self.assertEqual(registro_uso.km_inicial, km_inicial)

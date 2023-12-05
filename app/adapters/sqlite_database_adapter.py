@@ -1,9 +1,9 @@
 import sqlite3
-from adapters.database_adapter import IDatabaseAdapter
-from entities.veiculo import Veiculo
-from entities.motorista import Motorista
-from entities.abastecimento import RegistroAbastecimento
-from entities.resgistro_uso import RegistroUso
+from app.adapters.database_adapter import IDatabaseAdapter
+from app.entities.veiculo import Veiculo
+from app.entities.motorista import Motorista
+from app.entities.abastecimento import RegistroAbastecimento
+from app.entities.resgistro_uso import RegistroUso
 class SQLiteDatabaseAdapter(IDatabaseAdapter):
     def __init__(self, db='controle_veiculos.db'):
         self.db = db
@@ -28,7 +28,7 @@ class SQLiteDatabaseAdapter(IDatabaseAdapter):
         finally:
             conn.close()
 
-    def atualizar_entidade(self, tabela, chave_primaria, **dados):
+    def atualizar_entidade(self, tabela, chave_primaria, valor_chave_primaria, **dados):
         try:
             conn = sqlite3.connect(self.db)
             cursor = conn.cursor()
@@ -36,8 +36,8 @@ class SQLiteDatabaseAdapter(IDatabaseAdapter):
             # Montar a string de colunas e valores dinamicamente
             colunas_valores = ', '.join([f"{coluna} = ?" for coluna in dados.keys()])
 
-            # Executar a atualizaç da entidade
-            cursor.execute(f'UPDATE {tabela} SET {colunas_valores} WHERE {chave_primaria} = ?', tuple(dados.values()) + (dados['placa'],))
+            # Executar a atualização da entidade
+            cursor.execute(f'UPDATE {tabela} SET {colunas_valores} WHERE {chave_primaria} = ?', tuple(dados.values()) + (valor_chave_primaria,))
 
             conn.commit()
 
@@ -83,7 +83,7 @@ class SQLiteDatabaseAdapter(IDatabaseAdapter):
             classes_por_tabela = {
                 'veiculos': Veiculo,
                 'motoristas': Motorista,
-                'abastecimento': RegistroAbastecimento,
+                'abastecimentos': RegistroAbastecimento,
                 'uso_veiculo' : RegistroUso,
             }
 

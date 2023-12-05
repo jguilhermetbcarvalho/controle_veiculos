@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from entities.veiculo import Veiculo
+from app.entities.veiculo import Veiculo
 
 
 class IDatabaseAdapter(ABC):

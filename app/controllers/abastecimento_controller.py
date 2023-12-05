@@ -7,7 +7,7 @@ class AbastecimentoController:
     def __init__(self):
         self.registrar_abastecimento_use_case = RegistrarAbastecimentoUseCase()
 
-    def registrar_abastecimento(self, veiculo_placa, motorista, data, combustivel_litros, custo):
-        abastecimento = self.registrar_abastecimento_use_case.registrar_abastecimento(veiculo_placa, motorista, data, combustivel_litros, custo)
+    def registrar_abastecimento(self, veiculo_placa, motorista_nome, data, combustivel_litros, custo):
+        abastecimento = self.registrar_abastecimento_use_case.registrar_abastecimento(veiculo_placa, motorista_nome, data, combustivel_litros, custo)
         print('Controller - Registo de abastecimento cadastrado com sucesso!')
         return abastecimento
