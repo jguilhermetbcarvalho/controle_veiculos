@@ -5,18 +5,18 @@ from entities.veiculo import Veiculo
 class IDatabaseAdapter(ABC):
 
     @abstractmethod
-    def salvar_veiculo(self, veiculo: Veiculo) -> None:
+    def salvar_entidade(self, tabela, **dados):
         pass
 
     @abstractmethod
-    def buscar_veiculo(self, veiculo: Veiculo) -> None:
+    def atualizar_entidade(self, tabela, chave_primaria, **dados):
         pass
 
     @abstractmethod
-    def atualizar_veiculo(self, veiculo: Veiculo) -> None:
+    def remover_entidade(self, tabela, chave_primaria, **dados):
         pass
 
     @abstractmethod
-    def remover_veiculo(self, veiculo: Veiculo) -> None:
+    def buscar_entidade(self, tabela, **dados):
         pass
 
