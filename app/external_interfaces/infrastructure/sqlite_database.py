@@ -1,11 +1,25 @@
+import os
 import sqlite3
 
+db_name = 'controle_veiculos.db'
+
 def setup_database():
+    create_database_if_not_exists()
     create_veiculos_table()
+    create_uso_veiculo_table()
+    create_motorista_table()
+    create_abastecimento_table()
+
+def create_database_if_not_exists():
+    if not os.path.exists(db_name):
+        print(f'O banco de dados "{db_name}" não existe. Criando...')
+        conn = sqlite3.connect(db_name)
+        conn.close()
+        print('Banco de dados criado com sucesso.')
 
 def create_veiculos_table():
     try:
-        conn = sqlite3.connect('test.db')
+        conn = sqlite3.connect(db_name)
         cursor = conn.cursor()
 
         cursor.execute('''
@@ -26,11 +40,11 @@ def create_veiculos_table():
 
 def create_uso_veiculo_table():
     try:
-        conn = sqlite3.connect('test.db')
+        conn = sqlite3.connect(db_name)
         cursor = conn.cursor()
 
         cursor.execute('''
-            CREATE TABLE IF NOT EXISTS uso_veiculo (
+            CREATE TABLE IF NOT EXISTS uso_veiculos (
                 veiculo_placa TEXT PRIMARY KEY,
                 motorista_nome TEXT,
                 data_inicial DATE,
@@ -48,7 +62,7 @@ def create_uso_veiculo_table():
 
 def create_motorista_table():
     try:
-        conn = sqlite3.connect('test.db')
+        conn = sqlite3.connect(db_name)
         cursor = conn.cursor()
 
         cursor.execute('''
@@ -67,7 +81,7 @@ def create_motorista_table():
 
 def create_abastecimento_table():
     try:
-        conn = sqlite3.connect('test.db')
+        conn = sqlite3.connect(db_name)
         cursor = conn.cursor()
 
         cursor.execute('''

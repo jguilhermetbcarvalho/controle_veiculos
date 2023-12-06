@@ -1,3 +1,4 @@
+import os
 import sqlite3
 from app.interfaces_adapters.adapters.database_adapter import IDatabaseAdapter
 from app.entities.veiculo import Veiculo

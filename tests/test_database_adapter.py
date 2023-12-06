@@ -40,7 +40,7 @@ class TestDatabaseAdapter(unittest.TestCase):
         self.database_adapter.salvar_entidade('motoristas', nome=motorista_teste.nome, cpf=motorista_teste.cpf, funcao=motorista_teste.funcao)
         print('Motorista cadastrado no banco!')
 
-        self.database_adapter.salvar_entidade('uso_veiculo', veiculo_placa=uso_veiculo_teste.veiculo_placa, motorista_nome=uso_veiculo_teste.motorista_nome, data_inicial=uso_veiculo_teste.data_inicial, data_final=uso_veiculo_teste.data_final, km_inicial=uso_veiculo_teste.km_inicial, km_final=uso_veiculo_teste.km_final)
+        self.database_adapter.salvar_entidade('uso_veiculos', veiculo_placa=uso_veiculo_teste.veiculo_placa, motorista_nome=uso_veiculo_teste.motorista_nome, data_inicial=uso_veiculo_teste.data_inicial, data_final=uso_veiculo_teste.data_final, km_inicial=uso_veiculo_teste.km_inicial, km_final=uso_veiculo_teste.km_final)
         print('Registro de uso de veículo cadastrado no banco!')
 
         self.database_adapter.salvar_entidade('abastecimentos', veiculo_placa=abastecimento_teste.veiculo_placa, motorista_nome=abastecimento_teste.motorista_nome, data=abastecimento_teste.data, combustivel_litros=abastecimento_teste.combustivel_litros, custo=abastecimento_teste.custo)
