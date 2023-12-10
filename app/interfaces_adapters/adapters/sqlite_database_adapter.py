@@ -5,6 +5,7 @@ from app.entities.veiculo import Veiculo
 from app.entities.motorista import Motorista
 from app.entities.abastecimento import RegistroAbastecimento
 from app.entities.resgistro_uso import RegistroUso
+
 class SQLiteDatabaseAdapter(IDatabaseAdapter):
     def __init__(self, db='controle_veiculos.db'):
         self.db = db

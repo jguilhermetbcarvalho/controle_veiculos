@@ -1,7 +1,7 @@
 import sys
 sys.path.append(r"C:\Users\joaog\Documents\controle_veiculos")
 
-from app.external_interfaces.infrastructure.sqlite_database import setup_database
+from app.external_interfaces.infrastructure.sqlite_database import DatabaseSetup
 from app.interfaces_adapters.adapters.sqlite_database_adapter import SQLiteDatabaseAdapter
 from app.interfaces_adapters.controllers.veiculo_controller import VeiculoController
 from app.interfaces_adapters.controllers.motorista_controller import MotoristaController
@@ -11,7 +11,9 @@ from app.interfaces_adapters.controllers.abastecimento_controller import Abastec
 import os
 
 # Configuração inicial do banco de dados
-setup_database()
+db_name = 'controle_veiculos.db'
+db_setup = DatabaseSetup(db_name)
+db_setup.setup_database()
 
 # Crie uma instância do adaptador SQLite
 sqlite_adapter = SQLiteDatabaseAdapter()
@@ -36,6 +38,7 @@ def exibir_menu(menu_nome):
 def escolher_opcao():
     return int(input('Escolha a opção desejada: '))
 
+# Cadastro de entidade
 def cadastro_veiculo():
     placa = str(input('Digite a placa do veículo: '))
     modelo = str(input('Digite o modelo do veículo: '))
@@ -73,6 +76,11 @@ def cadastro_registro_abastecimento():
     print('Abastecimento do Veículo cadastrado no banco!')
     os.system('cls')
 
+# Cadastro de entidade
+def buscar_veiculo():
+    veiculo_placa = str(input('Digite a placa do veículo: '))
+    # veiculo_recuperado = self.database_adapter.buscar_entidade('veiculos', 'placa', veiculo_teste.placa)
+    pass
 
 def menu_principal():
     exibir_menu_principal()

@@ -12,3 +12,6 @@ class VeiculoController:
         veiculo = self.cadastrar_veiculo_use_case.cadastrar_veiculo(placa, modelo, ano)
         # print('Controller - Veículo cadastrado com sucesso!')
         return veiculo
+    
+    def buscar_veiculo(self, placa):
+        pass
